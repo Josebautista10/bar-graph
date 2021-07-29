@@ -4,24 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Graph</title>
+    <title>Document</title>
   </head>
   <body>
-    <h1>Build your graph today!!</h1>
-    <div>
-      <select name="option" id="bars">
-        <option value="">Color Options</option>
-        <option value="Red">Red</option>
-        <option value="Blue">Blue</option>
-        <option value="Green">Green</option>
-        <option value="Yellow">Yellow</option>
-      </select>
-    </div>
-    <div>
-      <label for="bars">How much bars would you like:</label>
-      <input type="number" id="quantity-bars" name="bars" min="1" max="5" />
-    </div>
-    <script src="./index.js"></script>
+    <h1>BarGraph App</h1>
+
+    <form id="bar-graph-form" action="" method="post" class="form">
+      <div class="form">
+        <label for="bars-quantity">Amount of bars: </label>
+        <select name="Bar Graph" id="selectBarGraph">
+          <option value="">Please choose an option</option>
+          <option value="one">1</option>
+          <option value="two">2</option>
+          <option value="three">3</option>
+          <option value="four">4</option>
+          <option value="five">5</option>
+        </select>
+      </div>
+
+      <div id="barsContainerInput"></div>
+
+      <div class="form">
+        <input type="submit" value="Draw!!" onclick="getInfo()" />
+      </div>
+    </form>
+
+    <div id="chart"></div>
+
+    <script src="./src/index.js" type="text/javascript"></script>
   </body>
 </html>

@@ -62,3 +62,10 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* Canvas styling */
+
+#bar-chart-canvas {
+  margin: 20px;
+  width: 1000px;
+}

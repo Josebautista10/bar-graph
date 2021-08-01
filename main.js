@@ -1,5 +1,8 @@
-let quantityBars = 0;
+import { generateInputText, generateInputNumber, generateSelectOption } from './src/generateFormInputs.js'
+import { getFormInfo } from './src/getFormInfo.js'
+import { drawBarChart } from './src/drawBarChart.js'
 
+let quantityBars = 0;
 let selectors = {
   barsQuantityInput: document.getElementById('selectBarGraph'),
   barsContainerInput: document.getElementById('barsContainerInput'),
@@ -25,7 +28,7 @@ function addInputBars(e) {
 }
 
 function addBarInputs(totalBars) {
-  for (i = 0; i < totalBars; i++) {
+  for (let i = 0; i < totalBars; i++) {
     const row = document.createElement('div');
     row.className = 'bar-data-wrapper';
     row.id = `bar-data-wrapper-${i + 1}`;
@@ -48,54 +51,42 @@ function addBarInputs(totalBars) {
     fieldsetSelector.appendChild(legend);
 
     // Inject Bar height input
-    const barHeight = document.createElement('input');
-    barHeight.type = 'text';
-    barHeight.id = `bar-height-${i + 1}`;
-    barHeight.className = 'bar-height';
-    fieldsetSelector.appendChild(barHeight);
+    fieldsetSelector.appendChild(
+      generateInputNumber('1', `bar-height-${i + 1}`, 'bar-height', 1)
+    );
 
     // Inject Bar color select
     const barColor = document.createElement('select');
-    const barOption = document.createElement('option');
+
     barColor.id = `bar-color-${i + 1}`;
     barColor.className = 'bar-color';
-    barOption.value = '';
-    barOption.textContent = 'select color';
-    barColor.appendChild(barOption);
+    barColor.appendChild(generateSelectOption({
+      textContent: 'select color',
+      value: ''
+    }));
 
     const barColorOptions = ['red', 'blue', 'green', 'yellow'];
 
     barColorOptions.forEach((color) => {
-      const option = document.createElement('option');
-      option.className = `option-${color}`
-      option.value = color;
-      option.textContent = color;
-      barColor.appendChild(option);
+      barColor.appendChild(generateSelectOption({
+        className: `option-${color}`,
+        textContent: color,
+        value: color
+      }));
     });
 
     fieldsetSelector.appendChild(barColor);
-     
-    
+
     //inject bar label color
-    const labelColor = document.createElement('input')
-    labelColor.placeholder = 'label color';
-    labelColor.id = `label-color-${i + 1}`
-    labelColor.className = 'label-color';
-    fieldsetSelector.appendChild(labelColor);
-
-
+    fieldsetSelector.appendChild(
+      generateInputText('label color', `label-color-${i + 1}`, 'label-color')
+    );
   }
 }
 
-function getInfo() {
-  const formSelector = document.getElementById('bar-graph-form');
-  const form = Array.from(formSelector).reduce(
-    (acc, input) => ({
-      ...acc,
-      [input.id]: input.value,
-    }),
-    {}
-  );
+const form = document.getElementById('bar-graph-form');
+form.addEventListener('submit', drawCanvas);
 
-  console.log('%c%s', 'font-size: 60px;', '🐛 💻', 'form 👉', form);
+function drawCanvas() {
+  drawBarChart(getFormInfo.data, getFormInfo.options, 'bar-chart-canvas')
 }

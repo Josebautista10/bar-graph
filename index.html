@@ -5,21 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <h1>BarGraph App</h1>
 
     <form id="bar-graph-form" action="" method="post" class="form">
       <div class="form">
-        <label for="bars-quantity">Amount of bars: </label>
-        <select name="Bar Graph" id="selectBarGraph">
-          <option value="">Please choose an option</option>
-          <option value="one">1</option>
-          <option value="two">2</option>
-          <option value="three">3</option>
-          <option value="four">4</option>
-          <option value="five">5</option>
-        </select>
+        <fieldset>
+          <legend>Settings</legend>
+          <!-- <select name="Bar Graph" id="selectBarGraph">
+            <option value="">Please choose an option</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+            <option value="four">4</option>
+            <option value="five">5</option>
+          </select> -->
+
+          <label for="quantity">quantity</label>
+          <input
+            id="selectBarGraph"
+            min="1"
+            name="quantity"
+            placeholder="1"
+            required
+            type="number"
+          />
+
+          <label for="bar-spacing">Bar spacing:</label>
+          <input
+            id="bar-spacing"
+            max="5"
+            min="1"
+            name="bar-spacing"
+            placeholder="1"
+            required
+            step="0.5"
+            type="number"
+          />
+          <label class="switch">
+            <input class="toggle-checkbox" type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+        </fieldset>
       </div>
 
       <div id="barsContainerInput"></div>

@@ -28,12 +28,12 @@
           <label for="bar-spacing">Bar spacing:</label>
           <input
             id="bar-spacing"
-            max="5"
-            min="1"
+            max="20"
+            min="5"
             name="bar-spacing"
-            placeholder="1"
+            placeholder="5px"
             required
-            step="0.5"
+            step="5"
             type="number"
           />
           <label class="switch">
@@ -49,7 +49,7 @@
     </div>
 
     <div id="bar-chart-canvas" >
-      <ul class="bars"></ul>
+      <div class="bars"></div>
     </div>
 
     <script src="main.js" type="module"></script>

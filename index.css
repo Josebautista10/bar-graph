@@ -68,15 +68,24 @@ input:checked + .slider:before {
 #bar-chart-canvas {
   margin: 20px;
   width: 1000px;
-  height: 1000px;
+  height: 550px;
 }
 
 .axis {
   border-left: solid 1px;
-  border-bottom:solid 1px; 
+  border-bottom:solid 1px;
+  padding-bottom:3px; 
 }
 
 .bars {
   display: flex;
-  flex-direction:row-reverse;
+  flex-direction:row;
+  padding-top:50px;
+}
+
+.bar {
+  /* border: solid 1px solid 1px none solid 1px; */
+  border-left: solid 3px;
+  border-top:solid 3px; 
+  border-right: solid 3px
 }

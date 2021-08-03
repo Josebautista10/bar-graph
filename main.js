@@ -84,9 +84,10 @@ function addBarInputs(totalBars) {
   }
 }
 
-const form = document.getElementById('bar-graph-form');
-form.addEventListener('submit', drawCanvas);
+const submitButton = document.getElementById('draw-button');
+submitButton.addEventListener('click', drawCanvas); 
+
 
 function drawCanvas() {
-  drawBarChart(getFormInfo.data, getFormInfo.options, 'bar-chart-canvas')
+  drawBarChart(getFormInfo().data, getFormInfo().options, 'bar-chart-canvas')
 }

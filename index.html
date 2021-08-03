@@ -10,7 +10,7 @@
   <body>
     <h1>BarGraph App</h1>
 
-    <form id="bar-graph-form" class="form">
+    <div id="bar-graph-form" class="form">
       <div class="form-settings">
         <fieldset>
           <legend>Settings</legend>
@@ -45,10 +45,12 @@
 
       <div id="barsContainerInput"></div>
 
-      <button type="submit">Draw</button>
-    </form>
+      <button id="draw-button">Draw</button>
+    </div>
 
-    <div id="bar-chart-canvas"></div>
+    <div id="bar-chart-canvas" >
+      <ul class="bars"></ul>
+    </div>
 
     <script src="main.js" type="module"></script>
   </body>

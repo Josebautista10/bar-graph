@@ -1,6 +1,6 @@
 export function drawBarChart(data, options, element) {
   const drawButton = document.getElementById('draw-button');
-  drawButton.disabled = true;
+  // drawButton.disabled = true;
   const canvas = document.querySelector(`#${element}`);
   const totalBars = data.length;
   const maxHeight = Math.max(...data);
@@ -8,18 +8,7 @@ export function drawBarChart(data, options, element) {
   const maxGraphWidthPx = 1000;
   const yAxisScale = maxGraphHeightPx / maxHeight;
   const xAxisScale = maxGraphWidthPx / totalBars - (totalBars + 1);
-  const defaultBarSettings = {
-    colors: ['red', 'green', 'blue', 'yellow'],
-    barSpacing: 5
-  };
-
-  let { barSpacing = 5, switchAxes } = options[options.length - 1];
-  
-  if (isNaN(barSpacing)) {
-    barSpacing = defaultBarSettings.barSpacing
-  }
-
-   
+  const { barSpacing, switchAxes } = options[options.length - 1];
 
   canvas.className = 'axis';
 
@@ -28,10 +17,8 @@ export function drawBarChart(data, options, element) {
 
     bar.className = 'bar';
     bar.id = `bar-${i + 1}`;
-    const randomColor = parseInt(defaultBarSettings.colors.length * Math.random());
-    bar.style['background-color'] = options[i].color || defaultBarSettings.colors[randomColor];
+    bar.style['background-color'] = options[i].color;
     bar.style.width = totalBars === 1 ? '250px' : `${xAxisScale}px`;
-
     bar.style['margin-left'] = totalBars === 1 ? '300px' : `${barSpacing}px`;
     bar.style['margin-right'] = `${barSpacing}px`;
 
@@ -41,6 +28,4 @@ export function drawBarChart(data, options, element) {
 
     canvas.querySelector('.bars').appendChild(bar);
   }
-
-  console.log(canvas);
 }

@@ -1,7 +1,11 @@
-import { generateInputText, generateInputNumber, generateSelectOption } from './src/generateFormInputs.js'
-import { getFormInfo } from './src/getFormInfo.js'
-import { drawBarChart } from './src/drawBarChart.js'
-import {generateDefaultInputs} from './src/generateDefaultInputs.js'
+import {
+  generateInputText,
+  generateInputNumber,
+  generateSelectOption,
+} from './src/generateFormInputs.js';
+import { getFormInfo } from './src/getFormInfo.js';
+import { drawBarChart } from './src/drawBarChart.js';
+import { generateDefaultInputs } from './src/generateDefaultInputs.js';
 import { clearCanvas } from './src/clearCanvas.js';
 
 let quantityBars = 0;
@@ -62,19 +66,23 @@ function addBarInputs(totalBars) {
 
     barColor.id = `bar-color-${i + 1}`;
     barColor.className = 'bar-color';
-    barColor.appendChild(generateSelectOption({
-      textContent: 'select color',
-      value: ''
-    }));
+    barColor.appendChild(
+      generateSelectOption({
+        textContent: 'select color',
+        value: '',
+      })
+    );
 
     const barColorOptions = ['red', 'blue', 'green', 'yellow'];
 
     barColorOptions.forEach((color) => {
-      barColor.appendChild(generateSelectOption({
-        className: `option-${color}`,
-        textContent: color,
-        value: color
-      }));
+      barColor.appendChild(
+        generateSelectOption({
+          className: `option-${color}`,
+          textContent: color,
+          value: color,
+        })
+      );
     });
 
     fieldsetSelector.appendChild(barColor);
@@ -87,17 +95,18 @@ function addBarInputs(totalBars) {
 }
 
 const submitButton = document.getElementById('draw-button');
-submitButton.addEventListener('click', drawCanvas); 
-
+submitButton.addEventListener('click', drawCanvas);
 
 function drawCanvas() {
-  drawBarChart(getFormInfo().data, getFormInfo().options, 'bar-chart-canvas')
+  clearCanvas()
+  drawBarChart(getFormInfo().data, getFormInfo().options, 'bar-chart-canvas');
 }
 const randomButton = document.getElementById('random-button');
 randomButton.addEventListener('click', drawDefaultCanvas);
 
 function drawDefaultCanvas() {
-  const defaultInputs = generateDefaultInputs()
-  drawBarChart(defaultInputs.data, defaultInputs.options, 'bar-chart-canvas')
   clearCanvas()
+  const defaultInputs = generateDefaultInputs();
+  drawBarChart(defaultInputs.data, defaultInputs.options, 'bar-chart-canvas');
 }
+

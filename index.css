@@ -81,17 +81,16 @@ input:checked + .slider:before {
   display: flex;
   flex-direction:row;
   padding-top:50px;
-  /* position:relative; */
   text-align:center; 
-  /* color:white; */
 }
 
 .bar {
-  /* border: solid 1px solid 1px none solid 1px; */
   border-left: solid 3px;
   border-top:solid 3px; 
   border-right: solid 3px;
-  text-align: -webkit-center
+  text-align: -webkit-center;
+  display: flex;
+  justify-content: center;
 }
 
 .justify-center {

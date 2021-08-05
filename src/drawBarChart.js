@@ -10,7 +10,8 @@ export function drawBarChart(data, options, element) {
   const xAxisScale = maxGraphWidthPx / totalBars - (totalBars + 1);
   const { barSpacing, switchAxes } = options[options.length - 1];
   const barList = canvas.querySelector('.bars')
-
+ 
+  
   canvas.className = 'axis';
 
   for (let i = 0; i < totalBars; i++) {
@@ -34,7 +35,23 @@ export function drawBarChart(data, options, element) {
     barValue.innerHTML = data[i]
     
     bar.appendChild(barValue);
+    positionBarValue(bar)
   }
-  
-  barList.style['padding-top'] = data.every(e => e === 0) ? '532px' : '50px'
+
+  barList.style['padding-top'] = data.every(e => e === 0) ? '520px' : '50px'
 }
+  function positionBarValue(bar) {
+    const valuePosition =  document.querySelector("#valuePosition").value
+
+    switch (valuePosition) {
+      case "center":
+        bar.style["align-items"] = "center"
+        break;
+      case "bottom":
+        bar.style["align-content"] = "flex-end"
+        bar.style["align-items"] = "flex-end"
+        break;
+      default:
+        break;
+    }
+  }

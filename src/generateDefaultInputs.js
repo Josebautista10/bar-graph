@@ -2,7 +2,7 @@ export function generateDefaultInputs() {
   const colors = ['red', 'green', 'blue', 'yellow'];
   const spacings = [5, 10, 15, 20];
   const barSpacing = spacings[randomNumber(spacings.length)];
-  const switchAxes = Math.random < 0.5;
+  const switchAxes = Math.random() >= 0.5;
   const totalBars = Math.floor(Math.random() * (10 - 1) + 1);
   const labels = [
     'Rocks',
@@ -27,8 +27,9 @@ export function generateDefaultInputs() {
     barSpacing,
     switchAxes,
   });
-
+console.log(options[options.length - 1])
   return { data, options };
+
 }
 
 function randomNumber(length) {

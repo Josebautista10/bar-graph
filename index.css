@@ -81,11 +81,33 @@ input:checked + .slider:before {
   display: flex;
   flex-direction:row;
   padding-top:50px;
+  /* position:relative; */
+  text-align:center; 
+  /* color:white; */
 }
 
 .bar {
   /* border: solid 1px solid 1px none solid 1px; */
   border-left: solid 3px;
   border-top:solid 3px; 
-  border-right: solid 3px
+  border-right: solid 3px;
+  text-align: -webkit-center
+}
+
+.justify-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bar-value {
+  background-color:black;
+  color:white;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

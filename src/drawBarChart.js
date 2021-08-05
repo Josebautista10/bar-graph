@@ -9,6 +9,7 @@ export function drawBarChart(data, options, element) {
   const yAxisScale = maxGraphHeightPx / maxHeight;
   const xAxisScale = maxGraphWidthPx / totalBars - (totalBars + 1);
   const { barSpacing, switchAxes } = options[options.length - 1];
+  const barList = canvas.querySelector('.bars')
 
   canvas.className = 'axis';
 
@@ -25,7 +26,15 @@ export function drawBarChart(data, options, element) {
     const barHeight = data[i] * yAxisScale;
     bar.style.height = `${barHeight}px`;
     bar.style['margin-top'] = `${maxGraphHeightPx - barHeight}px`;
-
-    canvas.querySelector('.bars').appendChild(bar);
+    
+    barList.appendChild(bar);
+    
+    const barValue = document.createElement('div');
+    barValue.className = 'bar-value'
+    barValue.innerHTML = data[i]
+    
+    bar.appendChild(barValue);
   }
+  
+  barList.style['padding-top'] = data.every(e => e === 0) ? '532px' : '50px'
 }

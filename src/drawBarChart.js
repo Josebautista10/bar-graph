@@ -25,6 +25,7 @@ export function drawBarChart(data, options, element) {
     const barHeight = data[i] * yAxisScale;
     bar.style.height = `${barHeight}px`;
     bar.style['margin-top'] = `${maxGraphHeightPx - barHeight}px`;
+    bar.animate([{transform:`translateY(${barHeight}px)`}, {transform:"translateY(0px)"}], {duration:1000})
 
     barList.appendChild(bar);
 

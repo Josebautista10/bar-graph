@@ -36,10 +36,19 @@
             step="5"
             type="number"
           />
+          
           <label class="switch">
             <input class="toggle-checkbox" type="checkbox" checked />
             <span class="slider round"></span>
+          
           </label>
+          <label for="valuePosition">Place Number on Bar:</label>
+          <select id="valuePosition">
+            <option value="top">Top</option>
+            <option value="center">Center</option>
+            <option value="bottom">Bottom</option>
+          
+          </select>
         </fieldset>
       </div>
 
@@ -47,12 +56,10 @@
 
       <button id="draw-button">Draw</button>
       <button id="random-button">Random</button>
-
-
     </div>
 
-    <div id="bar-chart-canvas" >
-      <div id="barsList" class="bars" ></div>
+    <div id="bar-chart-canvas">
+      <div id="barsList" class="bars"></div>
     </div>
 
     <script src="main.js" type="module"></script>

@@ -25,7 +25,13 @@ export function drawBarChart(data, options, element) {
     const barHeight = data[i] * yAxisScale;
     bar.style.height = `${barHeight}px`;
     bar.style['margin-top'] = `${maxGraphHeightPx - barHeight}px`;
-    bar.animate([{transform:`translateY(${barHeight}px)`}, {transform:"translateY(0px)"}], {duration:1000})
+    bar.animate(
+      [
+        { transform: `translateY(${barHeight}px)` },
+        { transform: 'translateY(0px)' },
+      ],
+      { duration: 1000 }
+    );
 
     barList.appendChild(bar);
 
@@ -36,9 +42,11 @@ export function drawBarChart(data, options, element) {
     bar.appendChild(barValue);
     positionBarValue(bar);
   }
+  drawBarsLegend(options.slice(0, -1));
 
   barList.style['padding-top'] = data.every((e) => e === 0) ? '520px' : '50px';
 }
+
 function positionBarValue(bar) {
   const valuePosition = document.querySelector('#valuePosition').value;
 
@@ -52,7 +60,6 @@ function positionBarValue(bar) {
       break;
     default:
       break;
-      
   }
 }
 
@@ -65,4 +72,15 @@ function drawGrid(canvas) {
 function removeGrid(canvas) {
   canvas.style['background-image'] = '';
   canvas.style['background-size'] = '';
+}
+
+function drawBarsLegend(options) {
+  const barList = document.querySelector('#legendList');
+  options.forEach((bar) => {
+    const legend = document.createElement('li');
+    legend.innerHTML = bar.label;
+    legend.className = "barLegend" 
+    legend.style.setProperty('--background', bar.color)
+    barList.appendChild(legend);
+  });
 }

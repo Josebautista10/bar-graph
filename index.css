@@ -94,7 +94,6 @@ input:checked + .slider:before {
   text-align: -webkit-center;
   display: flex;
   justify-content: center;
-  /* animation: show-bar-vertical 1.2s 0.1s backwards; */
 }
 
 .justify-center {
@@ -115,17 +114,26 @@ input:checked + .slider:before {
   justify-content: center;
 }
 
-#legend-style {
+#legend > p {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+#legend {
   border-style: solid;
   width: 70%;
-  height: 500px;
+
 }
 
-/* @keyframes show-bar-vertical {
-  0% {
-    height: 0;
-  }
-  100% {
-    height: 100px;
-  }
-} */
+#legendList {
+  list-style: none;
+  font-size: 30px;
+}
+
+.barLegend::before {
+  content: "■";
+  color: var(--background);
+  display: inline-block; 
+  margin-right: 5px;
+  font-size:30px;
+}

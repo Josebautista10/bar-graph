@@ -10,58 +10,56 @@
   <body>
     <h1>BarGraph App</h1>
 
-    <div id="bar-graph-form" class="form">
-      <div class="form-settings">
-        <fieldset>
-          <legend>Settings</legend>
+    <div class="form">
+      <fieldset>
+        <legend>Settings</legend>
 
-          <label for="quantity">quantity</label>
-          <input
-            id="selectBarGraph"
-            min="1"
-            name="quantity"
-            placeholder="1"
-            required
-            type="number"
-          />
+        <label for="quantity">quantity</label>
+        <input
+          id="selectBarGraph"
+          min="1"
+          name="quantity"
+          placeholder="1"
+          required
+          type="number"
+        />
 
-          <label for="bar-spacing">Bar spacing:</label>
-          <input
-            id="bar-spacing"
-            max="20"
-            min="5"
-            name="bar-spacing"
-            placeholder="5px"
-            required
-            step="5"
-            type="number"
-          />
+        <label for="barSpacingInput">Bar spacing:</label>
+        <input
+          id="barSpacingInput"
+          max="20"
+          min="5"
+          name="barSpacingInput"
+          placeholder="5px"
+          required
+          step="5"
+          type="number"
+        />
 
-          <label class="switch">
-            <input class="toggle-checkbox" type="checkbox" checked />
-            <span class="slider round"></span>
-          </label>
-          <label for="valuePosition">Place Number on Bar:</label>
-          <select id="valuePosition">
-            <option value="top">Top</option>
-            <option value="center">Center</option>
-            <option value="bottom">Bottom</option>
-          </select>
-        </fieldset>
-      </div>
+        <label class="switch">
+          <input class="toggle-checkbox" type="checkbox" checked />
+          <span class="slider round"></span>
+        </label>
+        <label for="valuePosition">Place Number on Bar:</label>
+        <select id="valuePosition">
+          <option value="top">Top</option>
+          <option value="center">Center</option>
+          <option value="bottom">Bottom</option>
+        </select>
+      </fieldset>
 
       <div id="barsContainerInput"></div>
 
-      <button id="draw-button">Draw</button>
-      <button id="random-button">Random</button>
+      <button id="drawButton">Draw</button>
+      <button id="randomButton">Random</button>
     </div>
 
-    <div id="container">
-      <div id="bar-chart-canvas">
+    <div id="chartLegendContainer">
+      <div id="barChartCanvas">
         <div id="barsList" class="bars"></div>
       </div>
 
-      <div id="legend">
+      <div id="legendContainer">
         <p>Legend</p>
         <ul id="legendList"></ul>
       </div>

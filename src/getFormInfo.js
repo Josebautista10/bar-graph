@@ -17,7 +17,9 @@ export function getFormInfo() {
   }
 
   const general = {}
-  general.barSpacing = parseFloat(document.getElementById('bar-spacing').value)
+  general.barSpacing = parseFloat(
+    document.getElementById('barSpacingInput').value
+  )
   general.switchAxes =
     document.getElementsByClassName('toggle-checkbox')[0].checked
   options.push(general)

@@ -96,17 +96,17 @@ selectors.barsQuantityInput.addEventListener('input', addInputBars)
 
 function drawCanvas() {
   clearCanvas()
-  drawBarChart(getFormInfo().data, getFormInfo().options, 'bar-chart-canvas')
+  drawBarChart(getFormInfo().data, getFormInfo().options, 'barChartCanvas')
 }
 
-document.getElementById('draw-button').addEventListener('click', drawCanvas)
+document.getElementById('drawButton').addEventListener('click', drawCanvas)
 
 function drawDefaultCanvas() {
   clearCanvas()
   const defaultInputs = generateDefaultInputs()
-  drawBarChart(defaultInputs.data, defaultInputs.options, 'bar-chart-canvas')
+  drawBarChart(defaultInputs.data, defaultInputs.options, 'barChartCanvas')
 }
 
 document
-  .getElementById('random-button')
+  .getElementById('randomButton')
   .addEventListener('click', drawDefaultCanvas)

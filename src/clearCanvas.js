@@ -1,5 +1,5 @@
 export function clearCanvas() {
-  document.getElementById('barsList').innerHTML = '';
-  document.getElementById('bar-chart-canvas').classList.remove('axis');
-  document.getElementById('legendList').innerHTML = '';
+  document.getElementById('barsList').innerHTML = ''
+  document.getElementById('barChartCanvas').classList.remove('axis')
+  document.getElementById('legendList').innerHTML = ''
 }

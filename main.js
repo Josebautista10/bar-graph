@@ -6,7 +6,7 @@ import {
 import { getFormInfo } from './src/getFormInfo.js'
 import { drawBarChart } from './src/drawBarChart.js'
 import { generateDefaultInputs } from './src/generateDefaultInputs.js'
-import { clearCanvas } from './src/clearCanvas.js'
+const { clearCanvas } = require('./src/clearCanvas.js')
 
 let quantityBars = 0
 let selectors = {

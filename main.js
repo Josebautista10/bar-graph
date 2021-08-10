@@ -96,7 +96,12 @@ selectors.barsQuantityInput.addEventListener('input', addInputBars)
 
 function drawCanvas() {
   clearCanvas()
-  drawBarChart(getFormInfo().data, getFormInfo().options, 'barChartCanvas')
+  const { data, options } = getFormInfo()
+  if (data.some((e) => isNaN(e))) {
+    alert('Please supply the graph with a number')
+    return
+  }
+  drawBarChart(data, options, 'barChartCanvas')
 }
 
 document.getElementById('drawButton').addEventListener('click', drawCanvas)

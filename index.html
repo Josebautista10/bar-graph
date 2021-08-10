@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>BarGraph App</h1>
+    <h1 class="title">BarGraph App</h1>
 
     <div class="form">
-      <fieldset>
+      <div class="formInputBarsBox">
+      <fieldset class="containerFieldSet">
         <legend>Settings</legend>
 
-        <label for="quantity">quantity</label>
+        <label for="quantity">Quantity:</label>
         <input
           id="selectBarGraph"
           min="1"
@@ -36,10 +37,13 @@
           type="number"
         />
 
-        <label class="switch">
-          <input class="toggle-checkbox" type="checkbox" checked />
-          <span class="slider round"></span>
-        </label>
+        <div>
+          <p class="switchAxes">Switch axes on/off:</p>
+          <label class="switch">
+            <input class="toggle-checkbox" type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
         <label for="valuePosition">Place Number on Bar:</label>
         <select id="valuePosition">
           <option value="top">Top</option>
@@ -49,9 +53,11 @@
       </fieldset>
 
       <div id="barsContainerInput"></div>
-
-      <button id="drawButton">Draw</button>
-      <button id="randomButton">Random</button>
+    </div>
+      <div class="buttonsContainer">
+        <button id="drawButton">Draw</button>
+        <button id="randomButton">Random</button>
+      </div>
     </div>
 
     <div id="chartLegendContainer">
